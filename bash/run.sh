@@ -9,7 +9,7 @@ fi
 # === remove previously registered versions of the container
 docker_container_tag="cineca-server"
 docker_container_cmd=$(docker container list -a | grep "${docker_container_tag}" | awk '{print $1}')
-if [ -d "${docker_container_cmd}" == "${docker_container_tag}" ]; then
+if [ "${docker_container_cmd}" == "${docker_container_tag}" ]; then
 docker container rm "${docker_container_cmd}"
 fi
 

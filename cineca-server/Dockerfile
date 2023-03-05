@@ -12,7 +12,7 @@ RUN apt install -y python3-pip
 RUN pip install Command
 
 RUN mkdir /root/cineca-server
-COPY /root/cineca-hl2-repo/cineca-server/* /root/cineca-server/
+COPY ./cineca-server/ /root/cineca-server/
 RUN chmod +x /root/cineca-server/main.py
 
-CMD [ "/root/cineca-hl2-repo/cineca-server/main.py" ]
+CMD [ "./cineca-server/main.py" ]

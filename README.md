@@ -24,6 +24,7 @@ Here are the steps to install the Docker container inside ADA Cloud:
 2. download this repository (*branch main*)
 3. run the bash script *./build.sh* (the script needs the token)
    - it downloads the repository inside the folder */root/cineca-hl2-repo*
+   - it could be required to use *sudo* since the script uses the *root* directory to store the project
 4. create the Docker container using *download.sh* (again, the token is required)
    - the name of the container will be *cineca-docker-image*
 5. the last step is to run the Docker container, using the bash script *run.sh*

@@ -20,9 +20,10 @@ fi
 echo "cloning repo..."
 mkdir /root/cineca-hl2-repo
 git clone ${git_url} -b ${git_branch} /root/cineca-hl2-repo
-cd cineca-hl2-repo
+cd /root/cineca-hl2-repo
 echo "OK"
 
+git remote remove origin
 git remote add origin ${git_url}
 git pull
 

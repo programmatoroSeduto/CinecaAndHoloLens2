@@ -25,7 +25,7 @@ echo "OK"
 
 git remote remove origin
 git remote add origin ${git_url}
-git pull
+git pull origin server
 
 echo "done"
 cd $base

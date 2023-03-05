@@ -15,4 +15,4 @@ RUN mkdir /root/cineca-server
 COPY ./cineca-server/ /root/cineca-server/
 RUN chmod +x /root/cineca-server/main.py
 
-CMD [ "/root/cineca-server/main.py" ]
+CMD [ "python3", "/root/cineca-server/main.py" ]

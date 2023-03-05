@@ -3,13 +3,13 @@
 
 # === try finding the repo inside the machine
 base=$(pwd)
-if [ ! -d "/root/cineca-hl2-repo/cineca-server" ]; then
+if [ ! -d "/home/cineca-hl2-repo/cineca-server" ]; then
 echo "ERROR: repository not found!"
 echo -e "\tPlease download the repo first."
 exit 1
 fi
 
-cd /root/cineca-hl2-repo/cineca-server
+cd /home/cineca-hl2-repo/cineca-server
 
 
 # === set the token from command line

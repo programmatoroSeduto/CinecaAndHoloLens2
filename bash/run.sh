@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -d "/root/cineca-hl2-repo" ]; then
+if [ ! -d "/home/cineca-hl2-repo" ]; then
 echo "ERROR: repository not found!"
 echo -e "\tPlease install the server code first."
 exit 1

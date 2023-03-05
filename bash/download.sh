@@ -13,14 +13,14 @@ git_repo="CinecaAndHoloLens2"
 git_branch="server"
 git_url="https://${token}@github.com/${git_user}/${git_repo}.git"
 
-if [ -d "/root/cineca-hl2-repo" ]; then
-rm -rf /root/cineca-hl2-repo
+if [ -d "/home/cineca-hl2-repo" ]; then
+rm -rf /home/cineca-hl2-repo
 fi
 
 echo "cloning repo..."
-mkdir /root/cineca-hl2-repo
-git clone ${git_url} -b ${git_branch} /root/cineca-hl2-repo
-cd /root/cineca-hl2-repo
+mkdir /home/cineca-hl2-repo
+git clone ${git_url} -b ${git_branch} /home/cineca-hl2-repo
+cd /home/cineca-hl2-repo
 echo "OK"
 
 git remote set-url origin ${git_url}

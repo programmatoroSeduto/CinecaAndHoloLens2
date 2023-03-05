@@ -23,8 +23,7 @@ git clone ${git_url} -b ${git_branch} /root/cineca-hl2-repo
 cd /root/cineca-hl2-repo
 echo "OK"
 
-git remote remove origin
-git remote add origin ${git_url}
+git remote set-url origin ${git_url}
 git pull origin server
 
 echo "done"

@@ -9,7 +9,7 @@ echo -e "\tPlease download the repo first."
 exit 1
 fi
 
-cd /home/cineca-hl2-repo/cineca-server
+cd /home/cineca-hl2-repo/
 
 
 # === set the token from command line
@@ -18,7 +18,7 @@ if [ -z "${token}" ]; then
 echo -e "USAGE:\n\tbuild.sh <your GIT token>"
 exit 1
 fi
-echo -n "${token}" > ./credentials/token
+echo -n "${token}" > ./cineca-server/credentials/token
 
 
 # === delete previous versions of the image

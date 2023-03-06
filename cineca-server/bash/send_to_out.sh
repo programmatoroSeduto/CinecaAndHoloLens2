@@ -19,6 +19,9 @@ git_url="https://${git_token}@github.com/${git_user}/${git_repo}.git"
 git clone ${git_url} -b out ./repo
 cd repo
 git remote add origin ${git_url}
+git config --global user.email "${git_user}@github.com"
+git config --global user.name ${git_user}
+git remote set-url origin ${git_url}
 
 rm -f out.csv
 cp ../cineca_storage.csv out.csv

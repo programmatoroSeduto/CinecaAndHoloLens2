@@ -34,3 +34,22 @@ Here are the steps to install the Docker container inside ADA Cloud:
 ### Client Side
 
 *tbd.*
+
+## Run everything -- server side
+
+To run all the server side, the best thing is to use this small script:
+
+```bash
+export token="your super-secret token here" && history -c
+
+cd &&\
+git clone https://${token}@github.com/programmatoroSeduto/CinecaAndHoloLens2.git \
+	-b main ./cineca && \
+cd cineca/bash && \
+chmod +x * && \
+sudo ./download.sh ${token} && \
+sudo ./build.sh ${token} && \
+sudo ./run.sh && \
+cd && \
+./cleanup.sh
+```

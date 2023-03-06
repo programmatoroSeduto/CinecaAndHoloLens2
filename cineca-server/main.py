@@ -9,7 +9,9 @@ def main():
     ''' the main execution code of the server
     
     '''
+    print( "current path is:", os.getcwd() )
     os.chdir( "/root/cineca-server/" )
+    print( "(after chdir()) current path is:", os.getcwd() )
     
     print("init storage...")
     fl = storage.cineca_simple_storage( )

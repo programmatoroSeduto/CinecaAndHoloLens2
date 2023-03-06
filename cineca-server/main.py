@@ -34,7 +34,7 @@ def main():
         cl.close()
     
     print( "sending results to GIT repo..." )
-    Command.run( ['./bash/send_to_out.sh'] )
+    Command.run( ['/root/cineca-server/bash/send_to_out.sh'] )
 
     print( "closing (end of the job) ..." )
     fl.close()

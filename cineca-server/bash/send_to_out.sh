@@ -24,7 +24,7 @@ git config --global user.name ${git_user}
 git remote set-url origin ${git_url}
 
 rm -f out.csv
-cp ../cineca_storage.csv out.csv
+cp ../cineca_storage.csv ./out.csv
 
 git add .
 git commit -m "output from server"

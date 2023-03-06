@@ -1,0 +1,1 @@
+C:\Users\Canfresco\source\repos\UWPConsoleApp\UWPConsoleApp.csproj;x86

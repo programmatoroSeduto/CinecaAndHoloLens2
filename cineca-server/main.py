@@ -2,8 +2,9 @@
 from cineca_server_code import connection
 from cineca_server_code import storage
 import json
-from command import Command
+# from command import Command
 import os
+import subprocess
 
 def main():
     ''' the main execution code of the server
@@ -39,7 +40,7 @@ def main():
         cl.close()
     
     print( "sending results to GIT repo..." )
-    Command.run( ['./bash/send_to_out.sh'] )
+    subprocess.call( '/root/cineca-server/bash/send_to_out.sh' )
 
     print( "closing (end of the job) ..." )
     fl.close()

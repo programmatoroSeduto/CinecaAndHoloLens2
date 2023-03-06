@@ -3,11 +3,14 @@ from cineca_server_code import connection
 from cineca_server_code import storage
 import json
 from command import Command
+import os
 
 def main():
     ''' the main execution code of the server
     
     '''
+    os.chdir( "/root/cineca-server/" )
+    
     print("init storage...")
     fl = storage.cineca_simple_storage( )
 
@@ -34,7 +37,7 @@ def main():
         cl.close()
     
     print( "sending results to GIT repo..." )
-    Command.run( ['/root/cineca-server/bash/send_to_out.sh'] )
+    Command.run( ['./bash/send_to_out.sh'] )
 
     print( "closing (end of the job) ..." )
     fl.close()

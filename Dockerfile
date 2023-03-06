@@ -14,5 +14,6 @@ RUN pip install Command
 RUN mkdir /root/cineca-server
 COPY ./cineca-server/ /root/cineca-server/
 RUN chmod +x /root/cineca-server/main.py
+RUN chmod +x /root/cineca-server/bash/send_to_output.sh
 
 CMD [ "python3", "/root/cineca-server/main.py" ]

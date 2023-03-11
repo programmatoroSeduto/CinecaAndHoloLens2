@@ -25,7 +25,7 @@ namespace Cineca
         public string IpAddress = "";
 
         // Portno of the server
-        public int PortNumber = 5000;
+        public string PortNumber = "5000";
 
         // time to wait between one data transfer and another one
         public int WaitTimeInSeconds = 5;
@@ -129,22 +129,23 @@ namespace Cineca
 #if WINDOWS_UWP
                 sendData(sk, jsonEncoded, hn, PortNumber);
 #else
-                Debug.Log($ "Sending data (not in UWP)... {jsonEncoded}");
+                Debug.Log($"Sending data (not in UWP)... {jsonEncoded}");
 #endif
                 yield return new WaitForSeconds(WaitTimeInSeconds);
             }
-
-#if WINDOWS_UWP
+            
             DataExchangeClass decDump = new DataExchangeClass()
             {
                 type = "dump"
             };
             string jsonDump = JsonSerializer.Serialize(decDump);
+
+#if WINDOWS_UWP
             var skdp = new StreamSocket();
             sendData(skdp, jsonDump, hn, PortNumber);
             skdp.Dispose();
 #else
-            Debug.Log($ "Sending dump command (not in UWP)... {jsonEncoded}");
+            Debug.Log($"Sending dump command (not in UWP)... {jsonDump}");
 #endif
         }
     }

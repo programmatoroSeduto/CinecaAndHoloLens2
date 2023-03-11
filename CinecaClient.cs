@@ -39,6 +39,9 @@ namespace Cineca
         // disposed object?
         private bool disposed = false;
 
+        // Output Text
+        public TextMesh outputText = null;
+
         // generate a position to send to the server
         public DataExchangeClass GetPosition( )
         {
@@ -70,6 +73,7 @@ namespace Cineca
 
             Console.WriteLine($"Sending data...");
             outsk.Write(jsonEncoded);
+            outsk.Flush();
 
             Console.WriteLine("Closing connection...");
             outsk.Dispose();
@@ -112,17 +116,28 @@ namespace Cineca
             disposed = true;
         }
 
+        // write output to OutputText
+        private void printOutputText( string msg )
+        {
+            Debug.Log(msg);
+            if (outputText != null)
+                outputText.text = msg; // overwrite
+        }
+
         // send data in cycle
         private IEnumerator SendDataCycle()
         {
+            printOutputText("SESSION START: waiting to start...");
             yield return new WaitForSeconds(WaitTimeInSeconds);
 
 #if WINDOWS_UWP
             var sk = new StreamSocket();
             var hn = new HostName(IpAddress);           
 #endif
+            int i = 0;
             while (continueSendingData)
             {
+
                 DataExchangeClass dec = GetPosition();
                 string jsonEncoded = JsonSerializer.Serialize(dec);
 
@@ -131,9 +146,12 @@ namespace Cineca
 #else
                 Debug.Log($"Sending data (not in UWP)... {jsonEncoded}");
 #endif
+                ++i;
+                printOutputText($"Sent position no. [{i}] ; waiting...");
                 yield return new WaitForSeconds(WaitTimeInSeconds);
             }
-            
+
+            printOutputText("STOP SESSION : sending dump...");
             DataExchangeClass decDump = new DataExchangeClass()
             {
                 type = "dump"
@@ -147,6 +165,7 @@ namespace Cineca
 #else
             Debug.Log($"Sending dump command (not in UWP)... {jsonDump}");
 #endif
+            printOutputText("Done!");
         }
     }
 }

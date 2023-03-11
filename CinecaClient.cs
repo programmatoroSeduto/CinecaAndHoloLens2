@@ -45,8 +45,8 @@ namespace Cineca
         // generate a position to send to the server
         public DataExchangeClass GetPosition( )
         {
-            Vector3 orientation = transform.rotation.eulerAngles;
-            Vector3 position = transform.position;
+            Vector3 orientation = Camera.main.transform.rotation.eulerAngles;
+            Vector3 position = Camera.main.transform.position;
 
             DataExchangeClass dec = new DataExchangeClass( )
             {
@@ -143,9 +143,9 @@ namespace Cineca
 
 #if WINDOWS_UWP
                 sendData(sk, jsonEncoded, hn, PortNumber);
-#else
-                Debug.Log($"Sending data (not in UWP)... {jsonEncoded}");
 #endif
+                Debug.Log($"Sending data (not in UWP)... {jsonEncoded}");
+
                 ++i;
                 printOutputText($"Sent position no. [{i}] ; waiting...");
                 yield return new WaitForSeconds(WaitTimeInSeconds);
